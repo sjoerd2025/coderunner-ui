@@ -1,5 +1,7 @@
 
 export type ModelOptions =
+  | "google_genai/gemini-2.5-flash"
+  | "ollamaollama"
   | "ollama/deepseek-r1:32b"
   | "ollama/deepseek-r1:8b"
   | "ollama/qwen3"

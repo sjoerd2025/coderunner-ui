@@ -11,13 +11,9 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { ModelOptions } from "@/types";
 
 export const Assistant = () => {
-//   const runtime = useChatRuntime({
-//     api: "/api/chat",
-//   });
      const { model, setModel, apiKey, setApiKey } = useChatContext();
      const isOllamaModel = model?.startsWith("ollama")
   return (
-    // <AssistantRuntimeProvider runtime={runtime}>
       <SidebarProvider>
         <AppSidebar />
         <SidebarInset>
@@ -47,7 +43,5 @@ export const Assistant = () => {
           <Thread />
         </SidebarInset>
       </SidebarProvider>
-    // </AssistantRuntimeProvider>
   );
 };
-

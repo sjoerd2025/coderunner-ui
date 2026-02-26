@@ -38,18 +38,14 @@ export const maxDuration = 30;
 
 let mcpClientCoderunner;
 
-
-
-if (false && process.env.NEXT_RUNTIME !== 'server') {
-  // Placeholder configuration at build time
-  mcpClientCoderunner = { tools: async () => ({}) };
-} else {
-
-const url = new URL('http://coderunner.local:8222/mcp');
+try {
+  const url = new URL('http://coderunner.local:8222/mcp');
   mcpClientCoderunner = await createMCPClient({
-  transport: new StreamableHTTPClientTransport(url, {
-  }),
-});
+    transport: new StreamableHTTPClientTransport(url, {}),
+  });
+} catch (error) {
+  console.warn("Failed to connect to Coderunner MCP, tools will be unavailable.");
+  mcpClientCoderunner = { tools: async () => ({}) };
 }
 
 
